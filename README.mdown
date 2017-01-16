@@ -1,0 +1,39 @@
+## Setup
+
+* Create a free account at [botimize](http://botimize.io) to get an API key.
+
+
+## Usage
+
+### Initialization
+
+Use API key to create a new botimize object
+
+- Facebook:
+
+  ```python
+
+  const botimize = Botimize('<YOUR-API-KEY'>, 'facebook');
+
+  ```
+
+### Log incoming messages:
+
+- Facebook
+
+  ```python
+  
+  botimize.logIncoming(message);
+  
+  ```
+
+
+### Log outgoing messages
+
+- Facebook
+
+  ```python
+
+  botimize.logOutgoing(message);
+
+  ```
