@@ -2,6 +2,13 @@
 
 * Create a free account at [botimize](http://botimize.io) to get an API key.
 
+* Install botimize SDK with pip
+ 	```terminal
+
+  	pip install botimize
+
+  	```
+
 
 ## Usage
 
@@ -30,7 +37,7 @@ Use API key to create a new botimize object
 	
   ```python
   #message is the data you webhook received from Facebook Messenger platform
-  
+
   mySDK.logIncoming(message);
   
   ```
