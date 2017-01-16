@@ -27,8 +27,9 @@ Use API key to create a new botimize object
 ### Log incoming messages:
 
 - Facebook
-
+	
   ```python
+  #message is the data you webhook received from Facebook Messenger platform
   
   mySDK.logIncoming(message);
   
@@ -40,7 +41,16 @@ Use API key to create a new botimize object
 - Facebook
 
   ```python
-
-  mySDK.logOutgoing(message);
+  data = 
+  {
+    "access_token": "PAGE_ACCESS_TOKEN",
+    "message": {
+      "text": "hellow, world!"
+    },
+    "recipient": {
+      "id": "USER_ID"
+    }
+  }
+  mySDK.logOutgoing(data);
 
   ```
