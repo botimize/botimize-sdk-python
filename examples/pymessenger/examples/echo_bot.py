@@ -9,11 +9,11 @@ import requests
 
 app = Flask(__name__)
 
-ACCESS_TOKEN = "EAAFlkzjPKKYBAH7DGxbn8IZC7zFWaItU3feIK3hxpHjGAqh9ebQBIViqPAcI039DesUoZApdVjPIzuBHlaAAZCJBNvN2fQ8WN2vlZBZCLHK5mR8wsfEYkMYzszINMJDRNfZCNBVq6u3TQBHJQD9qCHqgZC2bFDTLI0nTBnjdKsJ6wZDZD"
-VERIFY_TOKEN = "chatbot"
+ACCESS_TOKEN = <YOUR_ACCESS_TOKEN>
+VERIFY_TOKEN = <YOUR_VERIFY_TOKEN>
 bot = Bot(ACCESS_TOKEN)
 
-botimize = Botimize("Y5IWNXBNANN1Y8WBCY3MMXBQVWV4TNY7","facebook")
+botimize = Botimize(<YOUR_API_KEY>,"facebook")
 
 @app.route("/", methods=['GET', 'POST'])
 def hello():
