@@ -9,11 +9,17 @@
 
 Use API key to create a new botimize object
 
+	```python
+
+  	from botimize import botimize
+
+  	```
+
 - Facebook:
 
   ```python
 
-  const botimize = Botimize(<'YOUR-API-KEY'>, 'facebook');
+  const mySDK = botimize.Botimize(<'YOUR-API-KEY'>, 'facebook');
 
   ```
 
@@ -23,7 +29,7 @@ Use API key to create a new botimize object
 
   ```python
   
-  botimize.logIncoming(message);
+  mySDK.logIncoming(message);
   
   ```
 
@@ -34,6 +40,6 @@ Use API key to create a new botimize object
 
   ```python
 
-  botimize.logOutgoing(message);
+  mySDK.logOutgoing(message);
 
   ```

@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
-  name = 'botimize-sdk-py',
-  packages = ['botimize-sdk-py'], # this must be the same as the name above
+  name = 'botimize',
+  packages = ['botimize'], # this must be the same as the name above
   version = '1.0',
   description = 'Botimize python SDK',
   author = 'kakalan123',
