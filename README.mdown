@@ -4,9 +4,7 @@
 
 * Install botimize SDK with pip
  	```terminal
-
   	pip install botimize
-
   	```
 
 

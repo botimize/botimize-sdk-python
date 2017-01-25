@@ -4,7 +4,6 @@ API_URL = "https://api.botimize.io"
 
 class Botimize:
     def __init__(self, apiKey, platform):
-        
         self.apiKey = apiKey
         self.platform = platform
         self.apiUrl = API_URL
