@@ -1,15 +1,15 @@
 import requests
 
-API_URL = "https://api.botimize.io"
+API_URL = 'https://api.botimize.io'
 
 class Botimize:
     def __init__(self, apiKey, platform):
-        
+
         self.apiKey = apiKey
         self.platform = platform
         self.apiUrl = API_URL
 
-    def logIncoming(self, data):
+    def log_incoming(self, data):
         uri = self.apiUrl + '/messages'
         auth = {
             'apikey': self.apiKey
@@ -28,7 +28,7 @@ class Botimize:
         result = response.json()
         return result
 
-    def logOutgoing(self, data):
+    def log_outgoing(self, data):
         uri = self.apiUrl + '/messages'
         auth = {
             'apikey': self.apiKey
