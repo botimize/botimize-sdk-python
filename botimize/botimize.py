@@ -15,6 +15,7 @@ class Botimize:
             'apikey': self.apiKey
         }
         result = []
+
         if(self.platform == 'facebook'):
             for event in data['entry']:
                 messaging = event['messaging']
@@ -35,8 +36,42 @@ class Botimize:
                             result.append(response.json())
                     else:
                         pass
+
         elif(self.platform == 'line'):
-            pass
+            for event in data['events']:
+                if event['type'] != 'message':
+                    continue
+
+                message = event['message']
+                if message['type'] != 'text':
+                    continue
+
+                messageData = {
+                    'sender': {
+                      'id': event['source']['userId'],
+                      'name': 'unknown'
+                    },
+                    'content': {
+                      'type': message['type'],
+                      'text': message['text']
+                    },
+                    'timestamp':event['timestamp']
+                }
+                options = {
+                    'tag': 'unknown',
+                    'platform': 'generic',
+                    'direction': 'incoming',
+                    'raw': messageData
+                }
+                response = requests.post(
+                    uri,
+                    params=auth,
+                    json=options
+                )
+                result.append(response.json())
+        else:
+            print('Specified platform is not supported: ' + self.platform)
+            return
 
         return result
 
@@ -45,12 +80,24 @@ class Botimize:
         auth = {
             'apikey': self.apiKey
         }
-        options = {
-          'tag': 'unknown',
-          'platform': self.platform,
-          'direction': 'outgoing',
-          'raw': data
-        }
+        if self.platform == 'facebook':
+            options = {
+              'tag': 'unknown',
+              'platform': self.platform,
+              'direction': 'outgoing',
+              'raw': data
+            }
+        elif self.platform == 'line':
+            options = {
+              'tag': 'unknown',
+              'platform': 'generic',
+              'direction': 'outgoing',
+              'raw': data
+            }
+        else:
+            print('Specified platform is not supported: ' + self.platform)
+            return
+            
         response = requests.post(
             uri,
             params=auth,
