@@ -49,7 +49,7 @@ def handle_message(event):
         },
         'content': {
           'type': 'text', 
-          'text': '123'
+          'text': 'hello'
         }
     };
     botimize.log_outgoing(outgoingLog)
