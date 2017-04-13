@@ -14,18 +14,30 @@ class Botimize:
         auth = {
             'apikey': self.apiKey
         }
-        options = {
-          'tag': 'unknown',
-          'platform': self.platform,
-          'direction': 'incoming',
-          'raw': data
-        }
-        response = requests.post(
-            uri,
-            params=auth,
-            json=options
-        )
-        result = response.json()
+        result = []
+        if(self.platform == 'facebook'):
+            for event in data['entry']:
+                messaging = event['messaging']
+                for x in messaging:
+                    if x.get('message'):
+                        if not x['message'].get('is_echo'):
+                            options = {
+                                'tag': 'unknown',
+                                'platform': self.platform,
+                                'direction': 'incoming',
+                                'raw': data
+                            }
+                            response = requests.post(
+                                uri,
+                                params=auth,
+                                json=options
+                            )
+                            result.append(response.json())
+                    else:
+                        pass
+        elif(self.platform == 'line'):
+            pass
+
         return result
 
     def log_outgoing(self, data):
