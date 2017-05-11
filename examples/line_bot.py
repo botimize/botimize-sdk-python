@@ -28,6 +28,7 @@ def callback():
     app.logger.info("Request body: " + body)
 
     event = request.get_json()
+    print(event)
     botimize.log_incoming(event)
 
     # handle webhook body
