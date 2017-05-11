@@ -25,30 +25,70 @@ Use API key to create a new botimize object
 
   ```python
 
-  const mySDK = botimize.Botimize(<'YOUR-API-KEY'>, 'facebook')
+  const botimize = botimize.Botimize(<'YOUR-API-KEY'>, 'facebook')
 
   ```
+
+- Line:
+
+  ```python
+
+  const botimize = botimize.Botimize(<'YOUR-API-KEY'>, 'line')
+
+  ```
+- Telegram:
+
+  ```python
+
+  const botimize = botimize.Botimize(<'YOUR-API-KEY'>, 'telegram')
+
+  ```
+- Generic:
+
+  ```python
+
+  const botimize = botimize.Botimize(<'YOUR-API-KEY'>, 'generic')
+
+  ```
+
 
 ### Log incoming messages:
 
-- Facebook
+- Facebook,Line,Telegram
 	
   ```python
-  #message is the data you webhook received from Facebook Messenger platform
+  # message is the data your webhook received from Facebook,Line,Telegram platform
 
-  mySDK.log_incoming(message);
+  botimize.log_incoming(message);
   
   ```
 
+- Generic:
+  
+  ```python
+  incoming_log = {
+    sender: {
+      id: 'UNIQUE_USER_ID',
+      name: 'USER_SCREEN_NAME'
+    },
+    content: {
+      type: 'CONTENT_TYPE', // 'text', 'image', 'audio', 'video', 'file', 'location'
+      text: 'CONTENT_TEXT'
+    }
+  };
+
+  botimize.log_incoming(incoming_log);
+  
+  ```
 
 ### Log outgoing messages:
 
-- Facebook
+- Facebook,Line,Telegram,Generic
 
   ```python
-  data = 
+  outgoing_log = 
   {
-    "access_token": "PAGE_ACCESS_TOKEN",
+    "access_token": "PAGE_ACCESS_TOKEN", 
     "message": {
       "text": "hellow, world!"
     },
@@ -56,6 +96,6 @@ Use API key to create a new botimize object
       "id": "USER_ID"
     }
   }
-  mySDK.log_outgoing(data);
+  botimize.log_outgoing(outgoing_log);
 
   ```
