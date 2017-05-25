@@ -1,13 +1,15 @@
 import requests
 
-API_URL = 'https://api.botimize.io'
-
 class Botimize:
-    def __init__(self, apiKey, platform):
+    def __init__(self, apiKey, platform, api_url = 'https://api.botimize.io'):
 
         self.apiKey = apiKey
         self.platform = platform
-        self.apiUrl = API_URL
+        if(platform != 'facebook' and platform != 'line' and 
+            platform != 'telegram' and platform != 'generic'):
+            print('unsupported platform:' + platform)
+
+        self.apiUrl = api_url
 
     def log_incoming(self, data):
         uri = self.apiUrl + '/messages'
@@ -15,18 +17,17 @@ class Botimize:
             'apikey': self.apiKey
         }
         options = {
-          'tag': 'unknown',
-          'platform': self.platform,
-          'direction': 'incoming',
-          'raw': data
+            'tag': 'unknown',
+            'platform': self.platform,
+            'direction': 'incoming',
+            'raw': data
         }
         response = requests.post(
             uri,
             params=auth,
             json=options
         )
-        result = response.json()
-        return result
+        return response.json()
 
     def log_outgoing(self, data):
         uri = self.apiUrl + '/messages'
@@ -39,10 +40,10 @@ class Botimize:
           'direction': 'outgoing',
           'raw': data
         }
+       
         response = requests.post(
             uri,
             params=auth,
             json=options
         )
-        result = response.json()
-        return result
+        return response.json()
