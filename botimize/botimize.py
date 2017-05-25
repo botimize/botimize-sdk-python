@@ -1,9 +1,7 @@
 import requests
 
-API_URL = 'https://api.botimize.io'
-
 class Botimize:
-    def __init__(self, apiKey, platform):
+    def __init__(self, apiKey, platform, api_url = 'https://api.botimize.io'):
 
         self.apiKey = apiKey
         self.platform = platform
@@ -11,7 +9,7 @@ class Botimize:
             platform != 'telegram' and platform != 'generic'):
             print('unsupported platform:' + platform)
 
-        self.apiUrl = API_URL
+        self.apiUrl = api_url
 
     def log_incoming(self, data):
         uri = self.apiUrl + '/messages'
