@@ -9,11 +9,11 @@ import requests
 
 app = Flask(__name__)
 
-ACCESS_TOKEN = <YOUR_ACCESS_TOKEN>
+ACCESS_TOKEN = <YOUR_PAGE_ACCESS_TOKEN>
 VERIFY_TOKEN = <YOUR_VERIFY_TOKEN>
 bot = Bot(ACCESS_TOKEN)
 
-botimize = Botimize(<YOUR_API_KEY>,"facebook")
+botimize = Botimize(<YOUT_BOTIMIZE_APIKEY>,"facebook")
 
 @app.route("/", methods=['GET', 'POST'])
 def hello():
@@ -26,7 +26,7 @@ def hello():
 
     if request.method == 'POST':
         output = request.get_json()
-        botimize.logIncoming(output)
+        botimize.log_incoming(output)
         for event in output['entry']:
             messaging = event['messaging']
             for x in messaging:
@@ -40,7 +40,7 @@ def hello():
                             "message":x['message'],
                             "recipient":x['sender']
                         }
-                        botimize.logOutgoing(data);
+                        botimize.log_outgoing(data);
                 else:
                     pass
         return "Success"
