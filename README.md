@@ -26,7 +26,7 @@
 Use Botimize API key to create a new botimize object, and `<PLATFORM>` should be `facebook`, `telegram`, `line` or `generic`.
 
   ```python
-    from botimize import Botimize
+  from botimize import Botimize
   ```
   ```python
   const botimize = botimize.Botimize(<YOUR-API-KEY>, <PLATFORM>)
@@ -64,7 +64,6 @@ To log incoming message is very easy, just put the body received from platform w
 This is a little different from `log_incoming()` because outgoing messages have token for sending message to client. **"Fortunately"**, there are three platforms and have three differents ways to authorize by using token. **"Unfortunately"**, one easy way is all Botimize needs.
 
 #### Facebook 
-- For those who already use request to your poject: Put options of request into `logOutgoing()`.
   ```python
   outgoing_log = {
     'recipient': { 'id': '1487766407960998' },
