@@ -3,9 +3,9 @@
 
 ## Table of contents
 
-- [Setup](#Setup)
-- [Usage](#Usage)
-- [Initialization](#Initialization)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Initialization](#initialization)
 - [Log incoming messages](#log-incoming-messages)
 - [Log outgoing messages](#log-outgoing-messages)
 - [References & Full Examples](#references--full-examples)
