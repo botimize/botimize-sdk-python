@@ -42,18 +42,16 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-
-    outgoingLog = {
-        'receiver': {
-          'id': 'Adam',
-          'name': 'USER_SCREEN_NAME'
-        },
-        'content': {
-          'type': 'text', 
-          'text': 'hello'
-        }
-    };
-    botimize.log_outgoing(outgoingLog)
+    
+    outgoing_log = {
+        'replyToken': event.reply_token,
+        'messages': [{
+            'type': event.message.type,
+            'text': event.message.text,
+        }],
+        'channelAccessToken': channelAccessToken
+    }
+    botimize.log_outgoing(outgoing_log)
 
     line_bot_api.reply_message(
         event.reply_token,
