@@ -29,10 +29,10 @@ Use Botimize API key to create a new botimize object, and `<PLATFORM>` should be
   from botimize import Botimize
   ```
   ```python
-  const botimize = botimize.Botimize(<YOUR-API-KEY>, <PLATFORM>)
+  botimize = botimize.Botimize(<YOUR-API-KEY>, <PLATFORM>)
   ```
   ```python
-  const botimize = botimize.Botimize('NS1W0O5YCIDH9HJOGNQQWP5NU7YJ0S0S', 'facebook')
+  botimize = botimize.Botimize('NS1W0O5YCIDH9HJOGNQQWP5NU7YJ0S0S', 'facebook')
   ```
 
 ### Log incoming messages:
