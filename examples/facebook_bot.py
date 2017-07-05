@@ -26,6 +26,7 @@ def hello():
 
     if request.method == 'POST':
         output = request.get_json()
+        #incoming
         botimize.log_incoming(output)
         for event in output['entry']:
             messaging = event['messaging']
@@ -35,6 +36,7 @@ def hello():
                     if x['message'].get('text'):
                         message = x['message']['text']
                         bot.send_text_message(recipient_id, message)
+                        #outgoing
                         data = {
                             "access_token":ACCESS_TOKEN,
                             "message":x['message'],

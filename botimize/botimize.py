@@ -1,13 +1,13 @@
 import requests
 
+supported_platform = ['facebook','line','telegram','generic']
+
 class Botimize:
     def __init__(self, apiKey, platform, api_url = 'https://api.botimize.io'):
-
         self.apiKey = apiKey
         self.platform = platform
-        if(platform != 'facebook' and platform != 'line' and 
-            platform != 'telegram' and platform != 'generic'):
-            print('unsupported platform:' + platform)
+        if platform not in supported_platform:
+            raise ValueError('unsupported platform:' + platform)
 
         self.apiUrl = api_url
 
