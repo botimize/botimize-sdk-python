@@ -3,7 +3,7 @@ import requests
 supported_platform = ['facebook','line','telegram','generic']
 
 class Botimize:
-    def __init__(self, apiKey, platform, api_url = 'https://api.botimize.io'):
+    def __init__(self, apiKey, platform, api_url = 'https://api.getbotimize.com'):
         self.apiKey = apiKey
         self.platform = platform
         if platform not in supported_platform:

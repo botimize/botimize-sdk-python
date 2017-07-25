@@ -42,7 +42,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    
+
     outgoing_log = {
         'replyToken': event.reply_token,
         'messages': [{
